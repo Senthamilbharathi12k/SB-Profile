@@ -1,8 +1,8 @@
 # # # from django.shortcuts import render
 
 # # # def home(request):
-# # #     # return render(request, 'Portfoliohtmlpages/base.html')
-# # #     return render(request, 'Portfoliohtmlpages/index.html')
+# # #     # return render(request, 'portfoliohtmlpages/base.html')
+# # #     return render(request, 'portfoliohtmlpages/index.html')
 
 import logging
 
@@ -19,12 +19,12 @@ logger = logging.getLogger(__name__)
 
 # Base Page
 def base(request):
-    return render(request, "Portfoliohtmlpages/base.html")
+    return render(request, "portfoliohtmlpages/base.html")
 
 
 # Home Page
 def home(request):
-    return render(request, "Portfoliohtmlpages/home.html")
+    return render(request, "portfoliohtmlpages/home.html")
 
 
 # Contact Page + Email Sending
@@ -32,10 +32,7 @@ def contact(request):
 
     # GET: Open contact page
     if request.method == "GET":
-        return render(
-            request,
-            "portfoliohtmlpages/contact.html"
-        )
+        return redirect("/#Connect")
 
     # POST: Process submitted form
     if request.method == "POST":
@@ -48,7 +45,7 @@ def contact(request):
         # Validate required fields
         if not all([name, visitor_email, subject, message]):
             messages.error(request, "Please fill in all fields.")
-            return redirect("/#contact")
+            return redirect("/#Connect")
 
         # Validate input lengths
         if (
@@ -61,7 +58,7 @@ def contact(request):
                 request,
                 "One or more fields are too long."
             )
-            return redirect("/#contact")
+            return redirect("/#Connect")
 
         # Validate email address
         try:
@@ -71,7 +68,7 @@ def contact(request):
                 request,
                 "Please enter a valid email address."
             )
-            return redirect("/#contact")
+            return redirect("/#Connect")
 
         try:
             # 1. Send visitor's message to portfolio owner
@@ -149,5 +146,5 @@ def contact(request):
                 "Email could not be sent right now. Please try again later."
             )
 
-        return redirect("/#contact")
+        return redirect("/#Connect")
 
