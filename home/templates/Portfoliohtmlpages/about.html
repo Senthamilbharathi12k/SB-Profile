@@ -1,0 +1,468 @@
+{% extends "portfoliohtmlpages/base.html" %}
+
+{% load static %}
+
+{% block title %}About ME | SB Profile{% endblock %}
+
+{% block content %}
+
+<style>
+/* =========================
+   ABOUT PREMIUM SECTION
+========================= */
+
+#Identity {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.about-text {
+    color: #c9cdd6;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.about-text strong {
+    color: #d4af37;
+    font-weight: 600;
+}
+
+.about-quote {
+    margin-top: 30px;
+    padding-left: 20px;
+    border-left: 3px solid #d4af37;
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.about-quote span {
+    display: block;
+    margin-top: 10px;
+    color: #aeb4c0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+}
+
+/* =========================
+   ABOUT IMAGE CARD
+========================= */
+
+.about-image-box {
+    width: 360px;
+    height: 420px;
+    max-width: 100%;
+    margin: auto;
+
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        145deg,
+        rgba(212, 175, 55, 0.10),
+        rgba(255, 255, 255, 0.02)
+    );
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.08);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Code icon */
+
+.about-image-box i {
+    font-size: 150px;
+    color: #d4af37;
+
+    transition:
+        transform 0.5s ease,
+        text-shadow 0.5s ease;
+}
+
+/* Card hover */
+
+.about-image-box:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+
+    box-shadow: 0 15px 55px rgba(212, 175, 55, 0.18);
+}
+
+/* Icon hover */
+
+.about-image-box:hover i {
+    transform: rotate(-8deg) scale(1.08);
+
+    text-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+/* =========================
+   JAVASCRIPT SCROLL ANIMATION
+========================= */
+
+/* Default: content remains visible if JS is unavailable */
+
+.about-reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* Animation activates when JavaScript is running */
+
+.about-js .about-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.about-js .about-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image comes from the right */
+
+.about-js .about-image-reveal {
+    opacity: 0;
+    transform: translateX(45px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.about-js .about-image-reveal.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Quote animation delay */
+
+.about-js .about-quote-reveal {
+    transition-delay: 0.2s;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    #Identity {
+        padding: 70px 0;
+    }
+
+    .about-image-box {
+        width: 280px;
+        height: 340px;
+        margin-top: 45px;
+    }
+
+    .about-image-box i {
+        font-size: 110px;
+    }
+
+    .about-quote {
+        font-size: 18px;
+    }
+
+}
+
+/* =========================
+   RESUME DOWNLOAD BUTTON
+========================= */
+
+.resume-btn-wrapper {
+    margin-top: 30px;
+}
+
+.resume-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 14px 28px;
+
+    color: #04101F;
+    background: linear-gradient(
+        135deg,
+        #D4AF37,
+        #F1D77A
+    );
+
+    border: 1px solid #D4AF37;
+    border-radius: 8px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+
+    transition: all 0.3s ease;
+}
+
+/* Download icon */
+
+.resume-download-btn i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+
+.resume-download-btn:hover {
+    color: #D4AF37;
+    background: transparent;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+}
+
+/* Icon animation */
+
+.resume-download-btn:hover i {
+    transform: translateY(3px);
+}
+
+/* Keyboard focus */
+
+.resume-download-btn:focus-visible {
+    outline: 2px solid #F1D77A;
+    outline-offset: 5px;
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+    .resume-download-btn {
+        padding: 13px 20px;
+        font-size: 13px;
+    }
+}
+
+
+/* Respect reduced-motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-js .about-reveal,
+    .about-js .about-image-reveal,
+    .about-image-box,
+    .about-image-box i {
+        transition: none;
+    }
+}
+</style>
+
+
+<!-- =========================
+     ABOUT / IDENTITY SECTION
+========================= -->
+
+<section class="section" id="Identity">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- ABOUT TEXT -->
+
+            <div class="col-lg-7">
+
+                <p class="gold about-reveal">
+                    KNOW WHO I AM
+                </p>
+
+                <h2 class="section-title text-start mb-4 about-reveal">
+
+                    About
+                    <span class="gold">Me</span>
+
+                </h2>
+
+                <p class="about-text about-reveal">
+
+                    Hi, I’m
+                    <strong>Senthamil Bharathi</strong>, a passionate
+                    <strong>Full Stack Python Developer</strong> with an
+                    interest in building modern, responsive, and
+                    user-friendly digital experiences.
+
+                </p>
+
+                <p class="about-text about-reveal">
+
+                    I enjoy transforming ideas into elegant web applications
+                    by combining
+                    <strong>frontend design, Python development,
+                    Django, and database technologies.</strong>
+                    I focus on writing clean code, creating intuitive
+                    interfaces, and continuously improving my technical skills.
+
+                </p>
+
+                <p class="about-text about-reveal">
+
+                    I’m currently developing my expertise through practical
+                    projects and hands-on learning, with a strong interest in
+                    <strong>web development and software engineering.</strong>
+
+                </p>
+
+                <!-- QUOTE -->
+
+                <div class="about-quote about-reveal about-quote-reveal">
+
+                    “Learn. Build. Improve. Repeat.”
+
+                    <span>— Senthamil Bharathi</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT IMAGE / CODE ICON -->
+
+            <div class="col-lg-5">
+
+                <div class="about-image-box about-image-reveal">
+
+                    <i class="bi bi-code-slash"
+                       aria-hidden="true"></i>
+
+                </div>
+
+            <!-- DOWNLOAD RESUME BUTTON -->
+
+                <div class="resume-btn-wrapper about-reveal">
+
+                    <a href="{% static 'files/SenthamilbharathiK.pdf' %}"
+                    class="resume-download-btn"
+                    download="Senthamil_Bharathi_Resume.pdf"
+                    id="resumeDownload">
+                    <i class="bi bi-download"></i>
+
+                    <span>Download My Resume</span>
+ 
+                </a>
+
+                </div>
+
+        </div>
+    
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+{% block scripts %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Enable animations only when JavaScript is available
+    document.body.classList.add("about-js");
+
+    // Select all elements that need to animate
+    const revealElements = document.querySelectorAll(
+        "#Identity .about-reveal, #Identity .about-image-reveal"
+    );
+
+    // Check browser support
+    if (!("IntersectionObserver" in window)) {
+
+        revealElements.forEach(function (element) {
+            element.classList.add("show");
+        });
+
+        return;
+    }
+
+    // Observe elements when they enter the screen
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    // Start the animation
+                    entry.target.classList.add("show");
+
+                } else {
+
+                    // Reset animation when leaving the screen
+                    entry.target.classList.remove("show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    // Apply observer to each element
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
+
+});
+
+// Resume download button
+
+const resumeButton = document.getElementById("resumeDownload");
+
+if (resumeButton) {
+
+    resumeButton.addEventListener("click", function () {
+
+        // Change button text temporarily
+        const buttonText = resumeButton.querySelector("span");
+        const originalText = buttonText.textContent;
+
+        buttonText.textContent = "Downloading...";
+
+        // Restore the original text
+        setTimeout(function () {
+            buttonText.textContent = originalText;
+        }, 1200);
+
+    });
+
+}
+
+</script>
+
+{% endblock %}

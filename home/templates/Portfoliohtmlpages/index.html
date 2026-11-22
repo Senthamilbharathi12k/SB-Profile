@@ -1,0 +1,2222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Full Stack Python Developer</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Devicon -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <style>
+        /* =========================
+           GLOBAL
+        ========================== */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(212, 175, 55, 0.10),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 40%,
+                    rgba(25, 70, 120, 0.25),
+                    transparent 35%
+                ),
+                #04101F;
+            color: #F8F5EA;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+
+            background: rgba(4, 16, 31, 0.72);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(212, 175, 55, 0.20);
+
+            padding: 20px 0;
+
+        }
+
+
+        .navbar-brand {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-decoration: none;
+
+        }
+
+
+        .brand-s {
+
+            color: #D4AF37;
+
+        }
+
+
+        .brand-profile {
+
+            color: #F8F5EA;
+
+            margin-left: 4px;
+
+        }
+
+
+        .navbar-brand:hover .brand-s {
+
+            color: #F1D77A;
+
+        }
+
+
+        .navbar-brand:hover .brand-profile {
+
+            color: #D4AF37;
+
+        }
+
+
+        .nav-link {
+
+            color: #F5F1E6 !important;
+
+            margin-left: 20px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: #D4AF37 !important;
+
+        }
+
+
+        .navbar-toggler {
+
+            border: 1px solid rgba(212, 175, 55, 0.5);
+
+        }
+
+
+        .navbar-toggler:focus {
+
+            box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.25);
+
+        }
+
+
+        .navbar-toggler-icon {
+
+            filter: brightness(0) invert(1);
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            min-height: 90vh;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+
+                    circle at 75% 50%,
+
+                    rgba(212, 175, 55, 0.12),
+
+                    transparent 35%
+
+                );
+
+        }
+
+
+        .hero h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 70px;
+
+            font-weight: 700;
+
+            line-height: 1.15;
+
+        }
+
+
+        .gold {
+
+            color: #D4AF37;
+
+        }
+
+
+        .hero p {
+
+            color: #C7CED8;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .btn-gold {
+
+            background: linear-gradient(
+
+                135deg,
+
+                #B88A18,
+
+                #D4AF37,
+
+                #F1D77A
+
+            );
+
+            color: #04101F;
+
+            border-radius: 30px;
+
+            padding: 13px 28px;
+
+            font-weight: 600;
+
+            border: none;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-gold:hover {
+
+            transform: translateY(-3px);
+
+            color: #04101F;
+
+            box-shadow:
+
+                0 10px 30px rgba(212, 175, 55, 0.30);
+
+        }
+
+
+        .btn-outline-gold {
+
+            border: 1px solid #D4AF37;
+
+            color: #D4AF37;
+
+            border-radius: 30px;
+
+            padding: 12px 28px;
+
+            transition: 0.3s;
+
+            background: transparent;
+
+        }
+
+
+        .btn-outline-gold:hover {
+
+            background: #D4AF37;
+
+            border-color: #D4AF37;
+
+            color: #04101F;
+
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        .profile-box {
+
+            width: 380px;
+
+            height: 480px;
+
+            border: 1px solid rgba(212, 175, 55, 0.70);
+
+            border-radius: 200px 200px 20px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: auto;
+
+            background:
+
+                linear-gradient(
+
+                    145deg,
+
+                    rgba(212, 175, 55, 0.10),
+
+                    rgba(255, 255, 255, 0.025)
+
+                );
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            box-shadow:
+
+                0 0 50px rgba(212, 175, 55, 0.10);
+
+        }
+
+
+        .profile-box i {
+
+            font-size: 150px;
+
+            color: #D4AF37;
+
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        .section {
+
+            padding: 70px 0;
+
+        }
+
+
+        .section-title {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            text-align: center;
+
+            margin-bottom: 60px;
+
+        }
+
+
+        /* =========================
+           ROYAL CARDS
+        ========================== */
+
+        .card-royal {
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(212, 175, 55, 0.18);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            height: 100%;
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            transition: 0.3s;
+
+        }
+
+
+        .card-royal:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #D4AF37;
+
+            box-shadow:
+
+                0 15px 40px rgba(212, 175, 55, 0.12);
+
+        }
+        /* =========================
+            ABOUT PREMIUM
+        ========================== */
+        .about-text {
+
+             color: #c9cdd6;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+            margin-bottom: 20px;
+        }
+
+        .about-text strong {
+            
+            color: #d4af37;
+
+            font-weight: 600;
+        }
+
+        .about-quote {
+
+            margin-top: 30px;
+
+            padding-left: 20px;
+
+            border-left: 3px solid #d4af37;
+
+            color: #d4af37;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 20px;
+
+            font-style: italic;
+        }
+
+        .about-quote span {
+
+            display: block;
+
+            margin-top: 10px;
+ 
+            color: #aeb4c0;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 13px;
+
+            font-style: normal;
+        }
+
+
+        /* ABOUT IMAGE */
+
+        .about-image-box {
+
+            width: 360px;
+
+            height: 420px;
+
+            margin: auto;
+
+            border: 1px solid rgba(212, 175, 55, 0.45);
+
+            border-radius: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+
+            linear-gradient(
+
+            145deg,
+
+            rgba(212, 175, 55, 0.10),
+
+            rgba(255, 255, 255, 0.02)
+
+        );
+
+        backdrop-filter: blur(15px);
+
+        box-shadow:
+
+        0 0 50px rgba(212, 175, 55, 0.08);
+        }
+
+        .about-image-box i {
+
+            font-size: 150px;
+
+            color: #d4af37;
+        }
+
+
+        /* MOBILE */
+        
+        @media (max-width: 768px) {
+
+        .about-image-box {
+
+        width: 280px;
+
+        height: 340px;
+
+        margin-top: 50px;
+
+    }
+
+}
+
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skill-card {
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(212, 175, 55, 0.18);
+
+            border-radius: 20px;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+        }
+
+
+        .skill-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #D4AF37;
+
+            box-shadow:
+
+                0 12px 30px rgba(212, 175, 55, 0.10);
+
+        }
+
+
+        .skill-icon {
+
+            font-size: 55px;
+
+            margin-bottom: 18px;
+
+            color: #D4AF37;
+
+        }
+
+
+        .skill-name {
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+        }
+
+
+        .skill-card.active {
+
+            display: inline-block;
+
+        }
+        .skill-title{
+             margin-bottom: 1px;
+             font-family: 'Playfair Display', serif;
+             font-size: 48px;
+             text-align: center;
+        }
+
+        .skill-subtitle{
+            padding: 20px 0;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 40px;
+
+
+
+        }
+        /* =======================
+            EDUCATION
+        =========================*/
+        /* ================= EDUCATION SECTION ================= */
+
+        #education {
+            padding: 90px 0;
+        }
+
+        /* Education Card */
+        .education-card {
+
+            display: flex;
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            min-height: 260px;
+            
+            margin: 30px auto;
+            
+            background: rgba(15, 30, 48, 0.85);
+            
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            
+            border-radius: 18px;
+            
+            overflow: hidden;
+            
+            transition: 0.3s ease;
+        }
+
+         /* Hover */
+        .education-card:hover {
+            
+            border-color: #D4AF37;
+            
+            transform: translateY(-5px);
+            
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.12);
+        }
+
+
+/* ================= LEFT IMAGE 40% ================= */
+
+        .education-image {
+            
+            width: 40%;
+            
+            min-height: 260px;
+            
+            overflow: hidden;
+        }
+        
+        .education-image img {
+            
+            width: 100%;
+            
+            height: 100%;
+            
+            object-fit: cover;
+            
+            display: block;
+            
+            transition: transform 0.5s ease;
+        }
+
+        .education-card:hover .education-image img {
+            transform: scale(1.05);
+        }
+
+
+/* ================= RIGHT CONTENT 60% ================= */
+
+        .education-content {
+            
+            width: 60%;
+            
+            padding: 45px 50px;
+            
+            display: flex;
+            
+            flex-direction: column;
+            
+            justify-content: center;
+        }
+
+
+        /* Degree Name */
+
+        .education-content h3 {
+            
+            margin: 0 0 20px;
+            
+            font-family: 'Playfair Display', serif;
+            
+            font-size: 28px;
+            
+            font-weight: 600;
+            
+            color: #F8F5EA;
+        }
+
+
+        /* College + Department */
+
+        .education-content p {
+            
+            margin: 8px 0;
+            
+            font-family: 'Poppins', sans-serif;
+            
+            font-size: 16px;
+            
+            color: #C7CED8;
+        }
+
+
+        /* Separator */
+
+        .education-content p span {
+        color: #D4AF37;
+        margin: 0 8px;
+    }
+
+
+/* Year / Status */
+
+        .education-content p:last-child {
+            
+            color: #D4AF37;
+            
+            font-weight: 500;
+        
+        }
+
+        .Qualification-title{
+            margin-bottom: 1px;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            text-align: center;
+        }
+
+        .Qualification-subtitle{
+            padding: 20px 0;
+
+            text-align: center;
+
+            font-family: 'Playfair Display', serif;
+
+            margin-bottom: 40px;
+        }
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .education-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .education-image {
+        width: 100%;
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .education-content {
+        width: 100%;
+        padding: 30px 25px;
+    }
+
+    .education-content h3 {
+        font-size: 23px;
+    }
+
+    .education-content p {
+        font-size: 14px;
+    }
+}
+
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .project-card {
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(212, 175, 55, 0.18);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            height: 100%;
+            
+
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            transition: 0.3s;
+
+        }
+
+
+        .project-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #D4AF37;
+
+            box-shadow:
+
+                0 15px 40px rgba(212, 175, 55, 0.12);
+
+        }
+
+
+        .project-img {
+
+            height: 200px;
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    rgba(212, 175, 55, 0.14),
+
+                    rgba(10, 35, 65, 0.50)
+
+                );
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #D4AF37;
+
+            font-size: 50px;
+
+            border: 1px solid rgba(212, 175, 55, 0.10);
+
+        }
+
+
+        .project-date {
+
+            color: #AEB8C5;
+
+            font-size: 13px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .project-card h4 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #F8F5EA;
+
+        }
+
+
+        .project-card p {
+
+            color: #B9C1CC;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .project-links {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+        }
+
+
+        .project-links a {
+
+            color: #D4AF37;
+
+            text-decoration: none;
+
+            border: 1px solid rgba(212, 175, 55, 0.35);
+
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .project-links a:hover {
+
+            background: #D4AF37;
+
+            color: #04101F;
+
+            border-color: #D4AF37;
+
+        }
+
+
+        /* =========================
+           CERTIFICATIONS
+        ========================== */
+
+        #certifications .project-img {
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    rgba(212, 175, 55, 0.10),
+
+                    rgba(8, 30, 55, 0.60)
+
+                );
+
+        }
+
+
+        #certifications .project-img img {
+
+            background: transparent;
+
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+
+            background: rgba(255, 255, 255, 0.025);
+
+            border: 1px solid rgba(212, 175, 55, 0.22);
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+
+                0 20px 60px rgba(0, 0, 0, 0.25);
+
+        }
+
+
+        .contact-box input,
+
+        .contact-box textarea {
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(212, 175, 55, 0.18);
+
+            color: #FFFFFF;
+
+            border-radius: 12px;
+
+            padding: 13px 15px;
+
+        }
+
+
+        .contact-box input::placeholder,
+
+        .contact-box textarea::placeholder {
+
+            color: #8E99A8;
+
+        }
+
+
+        .contact-box input:focus,
+
+        .contact-box textarea:focus {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            border-color: #D4AF37;
+
+            box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.08);
+
+            color: #FFFFFF;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            border-top: 1px solid rgba(212, 175, 55, 0.14);
+
+            padding: 30px 0;
+
+            text-align: center;
+
+            color: #8E99A8;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            .hero h1 {
+
+                font-size: 45px;
+
+            }
+
+
+            .profile-box {
+
+                width: 280px;
+
+                height: 350px;
+
+                margin-top: 50px;
+
+            }
+
+
+            .section-title {
+
+                font-size: 38px;
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+
+            <span class="brand-s">SB</span><span class="brand-profile">PROFILE</span>
+
+        </a>
+
+
+        <button
+
+            class="navbar-toggler"
+
+            type="button"
+
+            data-bs-toggle="collapse"
+
+            data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#Discover">
+
+                        Discover
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#Identity">
+
+                        Identity
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#Capabilities">
+
+                        Capabilities
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#Qualification">
+
+                        Qualification
+
+                    </a>
+
+                </li>
+
+                 <li class="nav-item">
+
+                    <a class="nav-link" href="#Creations">
+
+                        Creations
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#Recognition">
+
+                        Recognition
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#Connect">
+
+                        Connect
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-7">
+
+                <p class="gold">
+
+                    WELCOME TO MY WORLD
+
+                </p>
+
+
+                <h1>
+
+                    I'm a
+
+                    <span class="gold">
+
+                        Senthamilbharathi
+
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    I design modern and responsive websites that combine elegant visuals, clean layouts,
+
+                    and intuitive user experiences. I focus on creating websites that feel premium, professional,
+
+                    and memorable across every screen.
+
+                </p>
+
+
+                <div class="mt-4">
+
+                    <a
+
+                        href="#Creations"
+
+                        class="btn btn-gold me-3">
+
+                        Explore My Work
+
+                    </a>
+
+
+                    <a
+
+                        href="#Connect"
+
+                        class="btn btn-outline-gold">
+
+                        Contact Me
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="profile-box">
+
+                    <i class="bi bi-person"></i>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section class="section" id="Identity">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- ABOUT TEXT -->
+
+            <div class="col-lg-7">
+
+                <p class="gold">
+                    KNOW WHO I AM
+                </p>
+
+                <h2 class="section-title text-start mb-4">
+
+                    About
+                    <span class="gold">
+                        Me
+                    </span>
+
+                </h2>
+
+                <p class="about-text">
+
+                    Hi, I’m <strong>Senthamil Bharathi</strong>, a passionate
+                    <strong>Full Stack Python Developer</strong> with an interest
+                    in building modern, responsive, and user-friendly digital
+                    experiences.
+
+                </p>
+
+                <p class="about-text">
+
+                    I enjoy transforming ideas into elegant web applications
+                    by combining <strong>frontend design, Python development,
+                    Django, and database technologies.</strong> I focus on
+                    writing clean code, creating intuitive interfaces, and
+                    continuously improving my technical skills.
+
+                </p>
+
+                <p class="about-text">
+
+                    I’m currently developing my expertise through practical
+                    projects and hands-on learning, with a strong interest in
+                    <strong>web development and software engineering.</strong>
+
+                </p>
+
+                <div class="about-quote">
+
+                    “Learn. Build. Improve. Repeat.”
+
+                    <span>
+                        — Senthamil Bharathi
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT IMAGE -->
+
+            <div class="col-lg-5">
+
+                <div class="about-image-box">
+
+                    <i class="bi bi-code-slash"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================== -->
+
+<section class="section" id="Capabilities">
+
+    <div class="container">
+
+        <h2 class="skill-title">
+
+            What<span class="gold"> I Bring</span>
+
+        </h2>
+        
+        <h6 class ="skill-subtitle">
+
+            Technologies and tools I use to build modern web applications.
+
+        </h6>
+
+        <div class="row g-4">
+
+            <!-- HTML -->
+
+            <div class="col-md-3">
+
+                <div class="skill-card" onclick="showSkill(this)">
+
+                    <i class="devicon-html5-plain skill-icon"></i>
+
+                    <div class="skill-name">
+
+                        HTML
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CSS -->
+            
+            <div class="col-md-3">
+              
+                <div class="skill-card" onclick="showSkill(this)">
+
+                    <i class="devicon-css3-plain skill-icon"></i>
+
+                    <div class="skill-name">
+
+                        CSS
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Bootstrap -->
+
+            <div class="col-md-3">
+
+                <div class="skill-card" onclick="showSkill(this)">
+
+                    <i class="devicon-bootstrap-plain skill-icon"></i>
+                    
+                    <div class="skill-name">
+                    
+                        Bootstrap
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+            
+            <!-- JavaScript -->
+            
+            <div class="col-md-3">
+
+                <div class="skill-card" onclick="showSkill(this)">
+
+                    <i class="devicon-javascript-plain skill-icon"></i>
+
+                    <div class="skill-name">
+
+                        JavaScript
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Python -->
+
+            <div class="col-md-3">
+                
+                <div class="skill-card" onclick="showSkill(this)">
+         
+                    <i class="devicon-python-plain skill-icon"></i>
+         
+                    <div class="skill-name">
+         
+                        Python
+         
+                    </div>
+         
+                </div>
+         
+            </div>
+         
+            <!-- Tkinter -->
+         
+            <div class="col-md-3">
+                   
+                <div class="skill-card"onclick="showSkill(this)">
+                
+                    <i class="devicon-python-plain skill-icon"></i>
+                
+                    <div class="skill-name">
+                
+                        Tkinter
+                    </div>   
+                
+                </div>
+            
+            </div>
+            
+            <!-- Django -->
+            
+            <div class="col-md-3">
+     
+                <div class="skill-card" onclick="showSkill(this)">
+     
+                    <i class="devicon-django-plain skill-icon"></i>
+     
+                    <div class="skill-name">
+     
+                        Django
+     
+                    </div>
+     
+                </div>
+     
+            </div>
+     
+            <!-- MySQL -->
+     
+            <div class="col-md-3">
+     
+                <div class="skill-card" onclick="showSkill(this)">
+                   
+                    <i class="devicon-mysql-original skill-icon"></i>
+                   
+                    <div class="skill-name">
+                   
+                        MySQL
+                   
+                    </div>
+       
+                </div>
+       
+            </div>
+       
+            <!-- Git -->
+       
+            <div class="col-md-3">
+       
+                <div class="skill-card" onclick="showSkill(this)">
+     
+                    <i class="devicon-git-plain skill-icon"></i>
+     
+                    <div class="skill-name">
+     
+                        Git
+     
+                    </div>
+     
+                </div>
+     
+            </div>
+     
+        </div>
+    
+    </div>
+
+</section>
+<!-- =========================
+     EDUCATIONS
+========================== -->
+
+<section class="section" id="Qualification">
+
+    <div class="container">
+
+        <h2 class="Qualification-title">
+
+            <span>My </span>
+
+            <span class="gold"> Learning </span><span> Journey</span>
+
+        </h2>
+
+        <p class="Qualification-subtitle">
+
+            Growing through knowledge, experience, and continuous improvement.
+
+        </p>
+
+        <!-- Education 1 -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img src="{% static 'images/college.jpg' %}" alt="College">
+
+            </div>
+
+            <div class="education-content">
+
+                <h3>Bachelor of Engineering</h3>
+
+                <p>
+                   
+                    Vivekanandha College Of Engineering For Women (Autonomous) 
+                    <span>|</span>
+                    Computer Science and Technology
+
+                </p>
+
+                <p>
+                    2022 - 2026
+                    <span>|</span>
+                    Completed
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Education 2 -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img src="{% static 'images/school.png' %}" alt="Higher Secondary School">
+
+            </div>
+
+            <div class="education-content">
+
+                <h3>Higher Secondary Education</h3>
+
+                <p>
+                    Government Higher Secondary School
+                    <span>|</span>
+                    Computer Science
+                </p>
+
+                <p>
+                    2021- 2022
+                    <span>|</span>
+                    Completed
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Education 3 -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img src="{% static 'images/school.png' %}" alt="Secondary School">
+
+            </div>
+
+            <div class="education-content">
+
+                <h3>Secondary School Education</h3>
+
+                <p>
+                    Government High School
+                    <span>|</span>
+                    General Studies
+                </p>
+
+                <p>
+                    2019 - 2020
+                    <span>|</span>
+                    Completed
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+     PROJECTS
+========================== -->
+
+<section class="section" id="Creations">
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            What
+
+            <span class="gold">
+
+                I’ve Built
+
+            </span>
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+                    <i class="bi bi-cup-hot"></i>
+
+                    <div class="project-img">
+
+                        <img src="{% static 'images/1.png' %}" alt="SB Profile Project">
+                    
+                    </div>
+
+
+                    <div class="project-date">
+
+                        September 2026 
+
+                    </div>
+
+
+                    <h4 class="mt-3">
+
+                        SB PROFILE
+
+                    </h4>
+
+
+                    <p>
+
+                        A modern personal portfolio website
+                        
+                        designed with a premium user interface
+                        
+                        and responsive layout.
+
+
+                    </p>
+
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-github"></i>
+
+                            GitHub
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                            Live Demo
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+                    <div class="project-img">
+
+                        <i class="bi bi-calendar-event"></i>
+
+                    </div>
+
+
+                    <div class="project-date">
+
+                        2026
+
+                    </div>
+
+
+                    <h4 class="mt-3">
+
+                        Event Booking Platform
+
+                    </h4>
+
+
+                    <p>
+
+                        A responsive event booking platform
+
+                        designed to help users explore and
+
+                        book events easily.
+
+                    </p>
+
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-github"></i>
+
+                            GitHub
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                            Live Demo
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+                    <div class="project-img">
+
+                        <i class="bi bi-shop"></i>
+
+                    </div>
+
+
+                    <div class="project-date">
+
+                        2026
+
+                    </div>
+
+
+                    <h4 class="mt-3">
+
+                        Fashion Store
+
+                    </h4>
+
+
+                    <p>
+
+                        An elegant fashion store interface
+
+                        with a clean layout, responsive
+
+                        design and modern shopping experience.
+
+                    </p>
+
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-github"></i>
+
+                            GitHub
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                            Live Demo
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CERTIFICATIONS
+========================== -->
+
+<section class="section" id="certifications">
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            My
+
+            <span class="gold">
+
+                Certifications
+
+            </span>
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- CERTIFICATION 1 - DELOITTE -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+
+                    <!-- Certificate Photo -->
+
+                    <div class="project-img"
+                         style="height: 210px; overflow: hidden;">
+
+                        <img
+
+                            src="{% static 'images/deloitte-certificate.png' %}"
+
+                            alt="Deloitte Data Analytics Job Simulation Certificate"
+
+                            style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px;">
+
+                    </div>
+
+
+                    <!-- Certification Name -->
+
+                    <h4 class="mt-4">
+
+                        Data Analytics Job Simulation
+
+                    </h4>
+
+
+                    <!-- Company Name -->
+
+                    <p class="mb-2">
+
+                        <i class="bi bi-building gold"></i>
+
+                        Deloitte
+
+                    </p>
+
+
+                    <!-- Month & Year -->
+
+                    <div class="project-date">
+
+                        <i class="bi bi-calendar3"></i>
+
+                        May 2026
+
+                    </div>
+
+
+                    <!-- LinkedIn -->
+
+                    <div class="mt-3">
+
+                        <a
+
+                            href="https://lnkd.in/p/gXDXbgPW"
+
+                            target="_blank"
+
+                            class="btn btn-outline-gold">
+
+                            <i class="bi bi-linkedin"></i>
+
+                            LinkedIn
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- CERTIFICATION 2 -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+
+                    <div class="project-img"
+                         style="height: 210px; overflow: hidden;">
+
+                        <img
+
+                            src="{% static 'images/deloitte-certificate.png' %}"
+
+                            alt="Certification Certificate"
+
+                            style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px;">
+
+                    </div>
+
+
+                    <h4 class="mt-4">
+
+                        Data Analytics Job Simulation
+
+                    </h4>
+
+
+                    <p class="mb-2">
+
+                        <i class="bi bi-building gold"></i>
+
+                        Deloitte
+
+                    </p>
+
+
+                    <div class="project-date">
+
+                        <i class="bi bi-calendar3"></i>
+
+                        May 2026
+
+                    </div>
+
+
+                    <div class="mt-3">
+
+                        <a
+
+                            href="https://lnkd.in/p/gXDXbgPW"
+
+                            target="_blank"
+
+                            class="btn btn-outline-gold">
+
+                            <i class="bi bi-linkedin"></i>
+
+                            LinkedIn
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            Let's
+
+            <span class="gold">
+
+                Connect
+
+            </span>
+
+        </h2>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="contact-box">
+
+
+                    <form>
+
+
+                        <input
+
+                            type="text"
+
+                            class="form-control mb-3"
+
+                            placeholder="Your Name">
+
+
+                        <input
+
+                            type="email"
+
+                            class="form-control mb-3"
+
+                            placeholder="Your Email">
+
+
+                        <input
+
+                            type="text"
+
+                            class="form-control mb-3"
+
+                            placeholder="Subject">
+
+
+                        <textarea
+
+                            class="form-control mb-3"
+
+                            rows="5"
+
+                            placeholder="Your Message"></textarea>
+
+
+                        <button
+
+                            type="submit"
+
+                            class="btn btn-gold">
+
+                            Send Message
+
+                        </button>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <p>
+
+        © 2026 My Portfolio |
+
+        Crafted with
+
+        <span class="gold">
+
+            ♥
+
+        </span>
+
+        using Django
+
+    </p>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+    function showSkill(card) {
+
+        card.classList.toggle("active");
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

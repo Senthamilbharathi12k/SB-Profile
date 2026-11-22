@@ -1,0 +1,3211 @@
+{% extends "portfoliohtmlpages/base.html" %}
+
+{% load static %}
+
+{% block title %}SB PROFILE{% endblock %}
+
+{% block content %}
+
+<!-- Home CSS START -->
+
+<style>
+
+      /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            min-height: 90vh;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+
+                    circle at 75% 50%,
+
+                    rgba(212, 175, 55, 0.12),
+
+                    transparent 35%
+
+                );
+
+        }
+
+
+        .hero h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 70px;
+
+            font-weight: 700;
+
+            line-height: 1.15;
+
+        }
+
+
+        .gold {
+
+            color: #D4AF37;
+
+        }
+
+
+        .hero p {
+
+            color: #C7CED8;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        .profile-box {
+
+            width: 380px;
+
+            height: 480px;
+
+            border: 1px solid rgba(212, 175, 55, 0.70);
+
+            border-radius: 200px 200px 20px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: auto;
+
+            background:
+
+                linear-gradient(
+
+                    145deg,
+
+                    rgba(212, 175, 55, 0.10),
+
+                    rgba(255, 255, 255, 0.025)
+
+                );
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            box-shadow:
+
+                0 0 50px rgba(212, 175, 55, 0.10);
+
+        }
+
+
+        .profile-box {
+    
+            width: 380px;
+    
+            height: 480px;
+    
+            border: 1px solid rgba(212, 175, 55, 0.70);
+    
+            border-radius: 200px 200px 20px 20px;
+    
+            overflow: hidden;
+    
+            display: flex;
+    
+            align-items: center;
+    
+            justify-content: center;
+   
+            margin: auto;
+   
+            background: linear-gradient(
+   
+            145deg,
+   
+            rgba(212, 175, 55, 0.10),
+   
+            rgba(255, 255, 255, 0.025)
+   
+            );
+   
+            backdrop-filter: blur(15px);
+   
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.10);
+
+        }
+
+
+        .profile-image {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            display: block;
+
+}
+
+</style>
+
+<!--Home CSS END -->
+
+<!--About CSS START-->
+<style>
+/* =========================
+   ABOUT PREMIUM SECTION
+========================= */
+
+#Identity {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.about-text {
+    color: #c9cdd6;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.about-text strong {
+    color: #d4af37;
+    font-weight: 600;
+}
+
+.about-quote {
+    margin-top: 30px;
+    padding-left: 20px;
+    border-left: 3px solid #d4af37;
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.about-quote span {
+    display: block;
+    margin-top: 10px;
+    color: #aeb4c0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+}
+
+/* =========================
+   ABOUT IMAGE CARD
+========================= */
+
+.about-image-box {
+    width: 360px;
+    height: 420px;
+    max-width: 100%;
+    margin: auto;
+
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        145deg,
+        rgba(212, 175, 55, 0.10),
+        rgba(255, 255, 255, 0.02)
+    );
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.08);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Code icon */
+
+.about-image-box i {
+    font-size: 150px;
+    color: #d4af37;
+
+    transition:
+        transform 0.5s ease,
+        text-shadow 0.5s ease;
+}
+
+/* Card hover */
+
+.about-image-box:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+
+    box-shadow: 0 15px 55px rgba(212, 175, 55, 0.18);
+}
+
+/* Icon hover */
+
+.about-image-box:hover i {
+    transform: rotate(-8deg) scale(1.08);
+
+    text-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+/* =========================
+   JAVASCRIPT SCROLL ANIMATION
+========================= */
+
+/* Default: content remains visible if JS is unavailable */
+
+.about-reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* Animation activates when JavaScript is running */
+
+.about-js .about-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.about-js .about-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image comes from the right */
+
+.about-js .about-image-reveal {
+    opacity: 0;
+    transform: translateX(45px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.about-js .about-image-reveal.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Quote animation delay */
+
+.about-js .about-quote-reveal {
+    transition-delay: 0.2s;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    #Identity {
+        padding: 70px 0;
+    }
+
+    .about-image-box {
+        width: 280px;
+        height: 340px;
+        margin-top: 45px;
+    }
+
+    .about-image-box i {
+        font-size: 110px;
+    }
+
+    .about-quote {
+        font-size: 18px;
+    }
+
+}
+
+/* =========================
+   RESUME DOWNLOAD BUTTON
+========================= */
+
+.resume-btn-wrapper {
+    margin-top: 30px;
+}
+
+.resume-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 14px 28px;
+
+    color: #04101F;
+    background: linear-gradient(
+        135deg,
+        #D4AF37,
+        #F1D77A
+    );
+
+    border: 1px solid #D4AF37;
+    border-radius: 8px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+
+    transition: all 0.3s ease;
+}
+
+/* Download icon */
+
+.resume-download-btn i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+
+.resume-download-btn:hover {
+    color: #D4AF37;
+    background: transparent;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+}
+
+/* Icon animation */
+
+.resume-download-btn:hover i {
+    transform: translateY(3px);
+}
+
+/* Keyboard focus */
+
+.resume-download-btn:focus-visible {
+    outline: 2px solid #F1D77A;
+    outline-offset: 5px;
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+    .resume-download-btn {
+        padding: 13px 20px;
+        font-size: 13px;
+    }
+}
+
+
+/* Respect reduced-motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-js .about-reveal,
+    .about-js .about-image-reveal,
+    .about-image-box,
+    .about-image-box i {
+        transition: none;
+    }
+}
+</style>
+
+<!--About CSS END-->
+
+<!--SKILLS CSS START-->
+
+<style>
+    /* =========================
+   SKILLS SECTION
+========================= */
+#Capabilities {
+    padding: 80px 0;
+    background: linear-gradient(
+        135deg,
+        #07111e,
+        #0b192a
+    );
+}
+
+/* Main heading */
+
+.skill-title {
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: #f5f1e8;
+}
+
+.skill-title .gold {
+    color: #d4af37;
+}
+
+/* Subtitle */
+
+.skill-subtitle {
+    padding: 15px 0;
+    margin-bottom: 45px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #f0ede6;
+}
+
+/* =========================
+   SKILL CARD
+========================= */
+
+.skill-card {
+    height: 166px;
+    width: 100%;
+    padding: 25px 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(212, 175, 55, 0.19);
+    border-radius: 22px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Gold technology icons */
+
+.skill-icon {
+    display: block;
+    font-size: 55px;
+    margin-bottom: 12px;
+    color: #e0b92f;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+/* Skill names */
+
+.skill-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #f5f3ed;
+}
+
+/* Hover effect */
+
+.skill-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #d4af37;
+
+    background: rgba(212, 175, 55, 0.075);
+
+    box-shadow:
+        0 12px 30px rgba(212, 175, 55, 0.12);
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1);
+    color: #f1d77a;
+}
+
+/* Selected card */
+
+.skill-card.active {
+    border-color: #d4af37;
+
+    background: rgba(212, 175, 55, 0.10);
+
+    box-shadow:
+        0 12px 30px rgba(212, 175, 55, 0.17);
+}
+
+/* Keyboard accessibility */
+
+.skill-card:focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 4px;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.skills-js .skill-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.skills-js .skill-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablets */
+@media (max-width: 991px) {
+
+    .skill-title {
+        font-size: 40px;
+    }
+
+    .skill-card {
+        height: 155px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+
+    #Capabilities {
+        padding: 60px 0;
+    }
+
+    .skill-title {
+        font-size: 32px;
+    }
+
+    .skill-subtitle {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .skill-card {
+        height: 140px;
+        padding: 18px 10px;
+        border-radius: 18px;
+    }
+
+    .skill-icon {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    .skill-name {
+        font-size: 14px;
+    }
+
+    /* React.js to Canva: full-width cards on mobile */
+    #Capabilities .skill-reveal {
+        width: 100%;
+    }
+}
+
+/* Reduce animations if requested */
+@media (prefers-reduced-motion: reduce) {
+
+    .skill-card,
+    .skill-icon,
+    .skills-js .skill-reveal {
+        transition: none;
+    }
+}
+
+
+
+</style>
+
+<!--SKILLS CSS END-->
+
+<!--EDUCATION CSS START-->
+
+<style>
+
+        #education {
+            padding: 90px 0;
+        }
+
+        /* Education Card */
+        .education-card {
+
+            display: flex;
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            min-height: 260px;
+            
+            margin: 30px auto;
+            
+            background: rgba(15, 30, 48, 0.85);
+            
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            
+            border-radius: 18px;
+            
+            overflow: hidden;
+            
+            transition: 0.3s ease;
+        }
+
+         /* Hover */
+        .education-card:hover {
+            
+            border-color: #D4AF37;
+            
+            transform: translateY(-5px);
+            
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.12);
+        }
+
+
+/* ================= LEFT IMAGE 40% ================= */
+
+        .education-image {
+            
+            width: 40%;
+            
+            min-height: 260px;
+            
+            overflow: hidden;
+        }
+        
+        .education-image img {
+            
+            width: 100%;
+            
+            height: 100%;
+            
+            object-fit: cover;
+            
+            display: block;
+            
+            transition: transform 0.5s ease;
+        }
+
+        .education-card:hover .education-image img {
+            transform: scale(1.05);
+        }
+
+
+/* ================= RIGHT CONTENT 60% ================= */
+
+        .education-content {
+            
+            width: 60%;
+            
+            padding: 45px 50px;
+            
+            display: flex;
+            
+            flex-direction: column;
+            
+            justify-content: center;
+        }
+
+
+        /* Degree Name */
+
+        .education-content h3 {
+            
+            margin: 0 0 20px;
+            
+            font-family: 'Playfair Display', serif;
+            
+            font-size: 28px;
+            
+            font-weight: 600;
+            
+            color: #F8F5EA;
+        }
+
+
+        /* College + Department */
+
+        .education-content p {
+            
+            margin: 8px 0;
+            
+            font-family: 'Poppins', sans-serif;
+            
+            font-size: 16px;
+            
+            color: #C7CED8;
+        }
+
+
+        /* Separator */
+
+        .education-content p span {
+        color: #D4AF37;
+        margin: 0 8px;
+    }
+
+
+/* Year / Status */
+
+        .education-content p:last-child {
+            
+            color: #D4AF37;
+            
+            font-weight: 500;
+        
+        }
+
+        .Qualification-title{
+            margin-bottom: 1px;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            text-align: center;
+        }
+
+        .Qualification-subtitle{
+            padding: 20px 0;
+
+            text-align: center;
+
+            font-family: 'Playfair Display', serif;
+
+            margin-bottom: 40px;
+        }
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .education-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .education-image {
+        width: 100%;
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .education-content {
+        width: 100%;
+        padding: 30px 25px;
+    }
+
+    .education-content h3 {
+        font-size: 23px;
+    }
+
+    .education-content p {
+        font-size: 14px;
+    }
+}
+
+</style>
+
+<!--EDUCATION CSS END-->
+
+<!--PROJECT CSS START -->
+
+<style>
+    .project-title {
+
+            margin-bottom: 0px;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            text-align: center;
+        }
+
+        .project-subtitle{
+
+            padding: 20px 0;
+
+            text-align: center;
+
+            font-family: 'Playfair Display', serif;
+
+            margin-bottom: 40px;
+        }
+
+    .project-card {
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(212, 175, 55, 0.18);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            height: 100%;
+            
+
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            transition: 0.3s;
+
+        }
+
+
+        .project-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #D4AF37;
+
+            box-shadow:
+
+                0 15px 40px rgba(212, 175, 55, 0.12);
+
+        }
+
+
+       
+
+        .project-img {
+
+            height: 200px;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            position: relative;
+
+
+            background: linear-gradient(
+
+            135deg,
+
+            rgba(212, 175, 55, 0.14),
+
+            rgba(10, 35, 65, 0.50)
+
+            );
+
+
+            border-radius: 15px;
+
+            border: 1px solid rgba(212, 175, 55, 0.10);
+
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        /* SB Profile project image */
+
+        .project-img img {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+
+            object-fit: cover;
+
+            object-position: center;
+
+
+
+            border-radius: 14px;
+
+
+    
+            transition: transform 0.5s ease;
+
+        }
+
+
+        /* Subtle image zoom on card hover */
+
+        .project-card:hover .project-img img {
+
+            transform: scale(1.04);
+
+        }
+
+
+        
+        .project-status {
+            
+            display: inline-flex;
+     
+            align-items: center;
+    
+            gap: 8px;
+            
+            padding: 7px 13px;
+    
+            margin-top: 15px;
+    
+            border: 1px solid rgba(46, 204, 113, 0.4);
+    
+            border-radius: 8px;
+    
+            background: rgba(46, 204, 113, 0.10);
+    
+            color: #5DE69A;
+    
+            font-size: 12px;
+    
+            font-weight: 600;
+    
+            backdrop-filter: blur(8px);
+
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #2ECC71;
+
+            box-shadow: 0 0 8px rgba(46, 204, 113, 0.7);
+
+        }
+
+        .project-date {
+
+            color: #AEB8C5;
+
+            font-size: 13px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .project-card h4 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #F8F5EA;
+
+        }
+
+
+        .project-card p {
+
+            color: #B9C1CC;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .project-links {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+        }
+
+
+        .project-links a {
+
+            color: #D4AF37;
+
+            text-decoration: none;
+
+            border: 1px solid rgba(212, 175, 55, 0.35);
+
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .project-links a:hover {
+
+            background: #D4AF37;
+
+            color: #04101F;
+
+            border-color: #D4AF37;
+
+        }
+</style>
+<!--PROJECT CSS END -->
+
+<!--CERTIFICATION CSS START -->
+<style>
+
+/* =========================
+   CERTIFICATIONS SECTION
+========================= */
+
+#Recognition {
+    padding: 80px 0;
+    background: linear-gradient(
+        135deg,
+        #07111e,
+        #0b192a
+    );
+}
+
+.Certification-title {
+
+            margin-bottom: 0px;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            text-align: center;
+        }
+
+        .Certification-subtitle{
+
+            padding: 20px 0;
+
+            text-align: center;
+
+            font-family: 'Playfair Display', serif;
+
+            margin-bottom: 40px;
+        }
+
+/* Certification Card */
+
+#Recognition .certification-card {
+    height: 100%;
+    padding: 32px;
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(212, 175, 55, 0.20);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+#Recognition .certification-card:hover {
+    transform: translateY(-7px);
+    border-color: #d4af37;
+
+    box-shadow:
+        0 15px 35px rgba(212, 175, 55, 0.10);
+}
+
+/* Certificate Image */
+
+#Recognition .certificate-image {
+    width: 100%;
+    height: 215px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.16);
+
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.08),
+        rgba(8, 30, 55, 0.65)
+    );
+}
+
+#Recognition .certificate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Certification Details */
+
+#Recognition .certification-card h4 {
+    margin-top: 22px;
+    margin-bottom: 14px;
+
+    color: #f5f1e8;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    line-height: 1.4;
+}
+
+#Recognition .certification-card p {
+    color: #c9cdd6;
+    font-size: 16px;
+}
+
+#Recognition .project-date {
+    color: #c9cdd6;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+#Recognition .project-date i {
+    margin-right: 6px;
+    color: #d4af37;
+}
+
+/* LinkedIn Button */
+
+#certifications .btn-outline-gold {
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    border-radius: 30px;
+
+    color: #d4af37;
+    padding: 10px 20px;
+
+    transition: all 0.3s ease;
+}
+
+#certifications .btn-outline-gold:hover {
+    color: #07111e;
+    background: #d4af37;
+    border-color: #d4af37;
+}
+
+/* Scroll Animation */
+
+#certifications .cert-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+#certifications .cert-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+
+    #certifications {
+        padding: 60px 0;
+    }
+
+    #certifications .certification-card {
+        padding: 22px;
+    }
+
+    #certifications .certificate-image {
+        height: 200px;
+    }
+
+    #certifications .certification-card h4 {
+        font-size: 21px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #certifications .certification-card,
+    #certifications .cert-reveal {
+        transition: none;
+    }
+}
+</style>
+<!--CERTIFICATION CSS END -->
+
+<!--CONTACT CSS START -->
+<style>
+    .contact-title {
+
+            margin-bottom: 0px;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            text-align: center;
+        }
+
+        .contact-subtitle{
+
+            padding: 20px 0;
+
+            text-align: center;
+
+            font-family: 'Playfair Display', serif;
+
+            margin-bottom: 40px;
+        }
+    .contact-box {
+
+            background: rgba(255, 255, 255, 0.025);
+
+            border: 1px solid rgba(212, 175, 55, 0.22);
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+
+                0 20px 60px rgba(0, 0, 0, 0.25);
+
+        }
+
+
+        .contact-box input,
+
+        .contact-box textarea {
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(212, 175, 55, 0.18);
+
+            color: #FFFFFF;
+
+            border-radius: 12px;
+
+            padding: 13px 15px;
+
+        }
+
+
+        .contact-box input::placeholder,
+
+        .contact-box textarea::placeholder {
+
+            color: #8E99A8;
+
+        }
+
+
+        .contact-box input:focus,
+
+        .contact-box textarea:focus {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            border-color: #D4AF37;
+
+            box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.08);
+
+            color: #FFFFFF;
+
+        }
+
+        /* Contact Page Animations */
+
+#Connect .contact-title,
+#Connect .contact-subtitle,
+#Connect .contact-box {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+#Connect .contact-title.show,
+#Connect .contact-subtitle.show,
+#Connect .contact-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#Connect .contact-box input,
+#Connect .contact-box textarea {
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+#Connect .contact-box input:focus,
+#Connect .contact-box textarea:focus {
+    transform: translateY(-2px);
+}
+
+#Connect .btn-gold {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#Connect .btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+}
+
+#Connect .contact-alert {
+    transition: opacity 0.5s ease;
+}
+</style>
+<!--CONTACT CSS END -->
+
+<!-- Home HTML START-->
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-7">
+
+                <p class="gold">
+
+                    WELCOME TO MY WORLD
+
+                </p>
+
+
+                <h1>
+
+                    I'm a
+
+                    <span class="gold">
+
+                        Senthamilbharathi
+
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    I design modern and responsive websites that combine elegant visuals, clean layouts,
+
+                    and intuitive user experiences. I focus on creating websites that feel premium, professional,
+
+                    and memorable across every screen.
+
+                </p>
+
+
+                <div class="mt-4">
+                    
+                    <!-- Projects page -->
+                     
+                    <a href="#Creations" class="btn btn-gold me-3">
+       
+                    Explore My Work
+    
+                </a>
+
+    
+                <!-- Contact page -->
+    
+                <a href="#Connect" class="btn btn-outline-gold">
+     
+                Contact Me
+    
+                </a>
+            
+            </div>
+
+            </div>
+
+
+            <div class="col-lg-5">
+                
+            <div class="profile-box">
+                <img src="{% static 'images/profile.jpeg' %}"
+                alt="My Profile Photo"
+                class="profile-image">
+            </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--Home HTML END -->
+
+<!--About HTML START-->
+
+<!-- =========================
+     ABOUT / IDENTITY SECTION
+========================= -->
+
+<section class="section" id="Identity">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- ABOUT TEXT -->
+
+            <div class="col-lg-7">
+
+                <p class="gold about-reveal">
+                    KNOW WHO I AM
+                </p>
+
+                <h2 class="section-title text-start mb-4 about-reveal">
+
+                    About
+                    <span class="gold">Me</span>
+
+                </h2>
+
+                <p class="about-text about-reveal">
+
+                    Hi, I’m
+                    <strong>Senthamil Bharathi</strong>, a passionate
+                    <strong>Full Stack Python Developer</strong> with an
+                    interest in building modern, responsive, and
+                    user-friendly digital experiences.
+
+                </p>
+
+                <p class="about-text about-reveal">
+
+                    I enjoy transforming ideas into elegant web applications
+                    by combining
+                    <strong>frontend design, Python development,
+                    Django, and database technologies.</strong>
+                    I focus on writing clean code, creating intuitive
+                    interfaces, and continuously improving my technical skills.
+
+                </p>
+
+                <p class="about-text about-reveal">
+
+                    I’m currently developing my expertise through practical
+                    projects and hands-on learning, with a strong interest in
+                    <strong>web development and software engineering.</strong>
+
+                </p>
+
+                <!-- QUOTE -->
+
+                <div class="about-quote about-reveal about-quote-reveal">
+
+                    “Learn. Build. Improve. Repeat.”
+
+                    <span>— Senthamil Bharathi</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT IMAGE / CODE ICON -->
+
+            <div class="col-lg-5">
+
+                <div class="about-image-box about-image-reveal">
+
+                    <i class="bi bi-code-slash"
+                       aria-hidden="true"></i>
+
+                </div>
+
+            <!-- DOWNLOAD RESUME BUTTON -->
+
+                <div class="resume-btn-wrapper about-reveal">
+
+                    <a href="{% static 'files/SenthamilbharathiK.pdf' %}"
+                    class="resume-download-btn"
+                    download="Senthamil_Bharathi_Resume.pdf"
+                    id="resumeDownload">
+                    <i class="bi bi-download"></i>
+
+                    <span>Download My Resume</span>
+ 
+                </a>
+
+                </div>
+
+        </div>
+    
+    </div>
+
+</div>
+
+</section>
+
+<!--About HTML END -->
+
+<!-- SKILLS HTML START -->
+
+<section class="section" id="Capabilities">
+
+    <div class="container">
+
+        <h2 class="skill-title">
+            What <span class="gold">I Bring</span>
+        </h2>
+
+        <h6 class="skill-subtitle">
+            Technologies and tools I use to build modern web applications.
+        </h6>
+
+        <div class="row g-4">
+
+            <!-- HTML -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-html5-plain skill-icon"></i>
+                    <div class="skill-name">HTML</div>
+
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-css3-plain skill-icon"></i>
+                    <div class="skill-name">CSS</div>
+
+                </div>
+            </div>
+
+            <!-- Bootstrap -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-bootstrap-plain skill-icon"></i>
+                    <div class="skill-name">Bootstrap</div>
+
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-javascript-plain skill-icon"></i>
+                    <div class="skill-name">JavaScript</div>
+
+                </div>
+            </div>
+
+            <!-- Python -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-python-plain skill-icon"></i>
+                    <div class="skill-name">Python</div>
+
+                </div>
+            </div>
+
+            <!-- Tkinter -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-python-plain skill-icon"></i>
+                    <div class="skill-name">Tkinter</div>
+
+                </div>
+            </div>
+
+            <!-- Django -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-django-plain skill-icon"></i>
+                    <div class="skill-name">Django</div>
+
+                </div>
+            </div>
+
+            
+               <!-- FLASK -->
+
+            <div class="col-md-3 skill-reveal">
+
+                <div class="skill-card"
+                tabindex="0"
+                role="button"
+                aria-pressed="false"
+                onclick="showSkill(this)"
+                onkeydown="handleSkillKey(event, this)">
+
+                <i class="devicon-flask-original skill-icon"></i>
+
+                <div class="skill-name">Flask</div>
+
+            </div>
+
+        </div>
+
+
+            <!-- MySQL -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                     tabindex="0"
+                     role="button"
+                     aria-pressed="false"
+                     onclick="showSkill(this)"
+                     onkeydown="handleSkillKey(event, this)">
+
+                    <i class="devicon-mysql-original skill-icon"></i>
+                    <div class="skill-name">MySQL</div>
+
+                </div>
+           
+            </div>
+
+            
+            <!-- React.js -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+
+                tabindex="0"
+
+                role="button"
+
+                aria-pressed="false"
+         
+                onclick="showSkill(this)"
+         
+                onkeydown="handleSkillKey(event, this)">
+
+        
+                <i class="devicon-react-original skill-icon"></i>
+        
+                <div class="skill-name">React.js</div>
+    
+            </div>
+
+        </div>
+
+            <!-- Node.js -->
+            <div class="col-md-3 skill-reveal">
+                <div class="skill-card"
+                
+                tabindex="0"
+         
+                role="button"
+         
+                aria-pressed="false"
+         
+                onclick="showSkill(this)"
+         
+                onkeydown="handleSkillKey(event, this)">
+                
+                <i class="devicon-nodejs-plain skill-icon"></i>
+        
+                <div class="skill-name">Node.js</div>
+    
+            </div>
+
+        </div>
+
+             <!-- Express.js -->
+
+            <div class="col-md-3 skill-reveal">
+    
+                <div class="skill-card"
+         
+                tabindex="0"
+         
+                role="button"
+         
+                aria-pressed="false"
+         
+                onclick="showSkill(this)"
+         
+                onkeydown="handleSkillKey(event, this)">
+
+        
+                <i class="devicon-express-original skill-icon"></i>
+        
+                <div class="skill-name">Express.js</div>
+    
+            </div>
+
+        </div>
+
+            <!-- Figma -->
+
+            <div class="col-md-3 skill-reveal">
+
+                <div class="skill-card"
+
+                tabindex="0"
+
+                role="button"
+
+                aria-pressed="false"
+
+                onclick="showSkill(this)"
+
+                onkeydown="handleSkillKey(event, this)">
+
+
+                <i class="devicon-figma-plain skill-icon"></i>
+
+                <div class="skill-name">Figma</div>
+
+            </div>
+
+        </div>
+
+            <!-- Power BI -->
+
+            <div class="col-md-3 skill-reveal">
+
+            <div class="skill-card"
+         
+            tabindex="0"
+         
+            role="button"
+         
+            aria-pressed="false"
+         
+            onclick="showSkill(this)"
+         
+            onkeydown="handleSkillKey(event, this)">
+
+            <i class="bi bi-bar-chart-fill skill-icon"></i>
+
+            <div class="skill-name">Power BI</div>
+
+        </div>
+
+    </div>
+
+            <!-- Excel -->
+
+            <div class="col-md-3 skill-reveal">
+   
+                <div class="skill-card"
+         
+                tabindex="0"
+         
+                role="button"
+         
+                aria-pressed="false"
+         
+                onclick="showSkill(this)"
+         
+                onkeydown="handleSkillKey(event, this)">
+
+        
+                <i class="bi bi-file-earmark-spreadsheet-fill skill-icon"></i>
+        
+                <div class="skill-name">Excel</div>
+    
+            </div>
+
+        </div>
+
+            <!-- Jupyter Notebook -->
+            <div class="col-md-3 skill-reveal">
+    
+                <div class="skill-card"
+         
+                tabindex="0" role="button" aria-pressed="false"
+         
+                onclick="showSkill(this)"
+         
+                onkeydown="handleSkillKey(event, this)">
+        
+                <i class="devicon-jupyter-plain skill-icon"></i>
+        
+                <div class="skill-name">Jupyter Notebook</div>
+    
+            </div>
+
+        </div>
+
+             <!-- Canva -->
+            
+             <div class="col-md-3 skill-reveal">
+    
+                <div class="skill-card"
+         
+                tabindex="0" role="button" aria-pressed="false"
+         
+                onclick="showSkill(this)"
+         
+                onkeydown="handleSkillKey(event, this)">
+        
+                <i class="devicon-canva-original skill-icon"></i>
+        
+                <div class="skill-name">Canva</div>
+    
+            </div>
+
+        </div>
+
+             <!-- WordPress -->
+
+        
+             <div class="col-md-3 skill-reveal">
+
+        
+                <div class="skill-card"
+
+
+                tabindex="0"
+
+
+                role="button"
+
+
+                aria-pressed="false"
+
+
+                onclick="showSkill(this)"
+
+
+                onkeydown="handleSkillKey(event, this)">
+
+
+                <i class="devicon-wordpress-plain skill-icon"></i>
+
+
+                <div class="skill-name">WordPress</div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- SKILLS HTML END -->
+
+<!--EDUCATION HTML START-->
+
+<!-- =========================
+     EDUCATIONS
+========================== -->
+
+<section class="section" id="Qualification">
+
+    <div class="container">
+
+        <h2 class="Qualification-title">
+
+            <span>My </span>
+
+            <span class="gold"> Learning </span><span> Journey</span>
+
+        </h2>
+
+        <p class="Qualification-subtitle">
+
+            Growing through knowledge, experience, and continuous improvement.
+
+        </p>
+
+        <!-- Education 1 -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img src="{% static 'images/college.jpg' %}" alt="College">
+
+            </div>
+
+            <div class="education-content">
+
+                <h3>Bachelor of Engineering</h3>
+
+                <p>
+                   
+                    Vivekanandha College Of Engineering For Women (Autonomous) 
+                    <span>|</span>
+                    Computer Science and Technology
+
+                </p>
+
+                <p>
+                    2022 - 2026
+                    <span>|</span>
+                    Completed
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Education 2 -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img src="{% static 'images/school.png' %}" alt="Higher Secondary School">
+
+            </div>
+
+            <div class="education-content">
+
+                <h3>Higher Secondary Education</h3>
+
+                <p>
+                    Government Higher Secondary School
+                    <span>|</span>
+                    Computer Science
+                </p>
+
+                <p>
+                    2021- 2022
+                    <span>|</span>
+                    Completed
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Education 3 -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img src="{% static 'images/school.png' %}" alt="Secondary School">
+
+            </div>
+
+            <div class="education-content">
+
+                <h3>Secondary School Education</h3>
+
+                <p>
+                    Government High School
+                    <span>|</span>
+                    General Studies
+                </p>
+
+                <p>
+                    2019 - 2020
+                    <span>|</span>
+                    Completed
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--EDUCATION HTML END -->
+
+<!--PROJECT HTML START -->
+<section class="section" id="Creations">
+
+    <div class="container">
+
+        <h2 class="project-title">
+
+            What
+
+            <span class="gold">
+
+                I’ve Built
+
+            </span>
+
+        </h2>
+
+        <h6 class="project-subtitle">
+
+            Turning ideas into modern meaningful digital experiences
+       
+        </h6>
+
+
+        <div class="row g-4">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+                    <div class="project-img">
+
+                        <img src="{% static 'images/sb profile.png' %}" alt="SB Profile Project">
+                    
+                    </div>
+
+
+                    <div class="project-date">
+
+                        September 2026 
+
+                    </div>
+
+
+                    <h4 class="mt-3">
+
+                        SB PROFILE
+
+                    </h4>
+
+
+                    <p>
+
+                        A modern personal portfolio website
+                        
+                        designed with a premium user interface
+                        
+                        and responsive layout.
+
+
+                    </p>
+
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-github"></i>
+
+                            GitHub
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                            Live Demo
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+                    <div class="project-img">
+
+                    <img src="{% static 'images/learnova.png' %}" alt="LL cafe">
+
+                    </div>
+
+
+                    <div class="project-date">
+
+                        November 2026
+
+                    </div>
+
+
+                    <h4 class="mt-3">
+
+                        Learnova
+
+                    </h4>
+
+
+                    <p>
+
+                        A student-focused learning platform 
+
+                        designed to simplify course discovery, 
+                        
+                        personalized learning recommendations, 
+                        
+                        study planning, and progress tracking.
+
+                    </p>
+
+
+                    <div class="project-links">
+
+                        <a href="https://github.com/Senthamilbharathi12k/Learnova?utm_source=chatgpt.com" target="_blank">
+
+                            <i class="bi bi-github"></i>
+
+                            GitHub
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                            Live Demo
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="col-md-4">
+
+                <div class="project-card">
+
+                    <div class="project-img">
+                
+                        <img src="{% static 'images/event hub.png' %}" alt="">
+            
+                    </div>
+
+                    <div class="project-status">
+                        
+                        <span class="status-dot"></span>
+                        
+                        Upcoming Project
+                    
+                    </div>
+
+
+                    <div class="project-date">
+
+                        December 2026
+
+                    </div>
+
+
+                    <h4 class="mt-3">
+
+                        Celebration Hub
+
+                    </h4>
+
+
+                    <p>
+
+                       An easy-to-use platform that helps people find interesting
+                       
+                       events, reserve their seats, and enjoy a smooth booking experience
+
+                    </p>
+
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-github"></i>
+
+                            GitHub
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                            Live Demo
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--PROJECT HTML END -->
+
+<!--CERTIFICATION HTML START -->
+
+<!-- =========================
+     CERTIFICATIONS
+========================= -->
+
+<section class="section" id="Recognition">
+
+    <div class="container">
+
+        <h2 class="Certification-title">
+
+            My <span class="gold">Certifications</span>
+        </h2>
+
+        <h6 class="Certification-subtitle">
+            Celebrating milestones that reflect dedication and growth
+        </h6>
+
+        <div class="row g-4">
+
+            <!-- CERTIFICATION 1 : typewriting -->
+
+            <div class="col-md-6 col-lg-4 cert-reveal">
+
+                <div class="certification-card">
+
+                    <div class="certificate-image">
+
+                        <img
+                        
+                            src="{% static 'images/typing .jpeg' %}"
+                            
+                            alt="Tamil Nadu Government Junior Grade Typewriting English Certificate"
+                            
+                            loading="lazy">
+
+                    </div>
+
+                    <h4>Junior Grade Typewriting – English</h4>
+
+                    <p class="mb-2">
+                        <i class="bi bi-building gold"></i>
+                       Government of Tamil Nadu
+                    </p>
+
+                    <div class="project-date">
+                        <i class="bi bi-calendar3"></i>
+                        August 2024
+                    </div>
+
+                    <div class="mt-4">
+
+                        <a
+                            href="https://lnkd.in/p/gS6g7p9H"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline-gold">
+
+                            <i class="bi bi-linkedin"></i>
+                            LinkedIn
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CERTIFICATION 2 : wordpress -->
+
+            <div class="col-md-6 col-lg-4 cert-reveal">
+
+                <div class="certification-card">
+
+                    <div class="certificate-image">
+
+                        <img
+                            src="{% static 'images/Wordpress.jpeg' %}"
+                            alt="Website with WordPress"
+                            loading="lazy">
+
+                    </div>
+
+                    <h4>Website with WordPress</h4>
+
+                    <p class="mb-2">
+                        <i class="bi bi-building gold"></i>
+                        Coursera
+                    </p>
+
+                    <div class="project-date">
+                        <i class="bi bi-calendar3"></i>
+                        July 2024
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <a
+                            href="https://www.linkedin.com/posts/senthamilbharathi-k-58a504410_wordpress-coursera-webdesign-activity-7463237930569011200-yXqf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGi52joBafQ89V7I4qIN8eq-pUt_-jQRWVA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline-gold">
+
+                            <i class="bi bi-linkedin"></i>
+                            LinkedIn
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+            <!-- CERTIFICATION 3: GUVI UI/UX DESIGN -->
+
+            <div class="col-md-6 col-lg-4 cert-reveal">
+
+                <div class="certification-card">
+
+                    <div class="certificate-image">
+
+                        <img
+                            src="{% static 'images/ui/ux.jpeg' %}"
+                            alt="Website with WordPress"
+                            loading="lazy">
+
+                    </div>
+
+                    <h4>UI/UX Design</h4>
+
+                    <p class="mb-2">
+                        <i class="bi bi-building gold"></i>
+                        GUVI HCL & Vivekanandha College
+                    </p>
+
+                    <div class="project-date">
+                        <i class="bi bi-calendar3"></i>
+                       January – May 2025
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <a
+                            href="https://www.linkedin.com/posts/senthamilbharathi-k-58a504410_uiuxdesign-guvi-linkedin-activity-7463097921379688448-saZX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGi52joBafQ89V7I4qIN8eq-pUt_-jQRWVA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline-gold">
+
+                            <i class="bi bi-linkedin"></i>
+                            LinkedIn
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+            <!-- CERTIFICATION 4 : Data Analytics -->
+
+            <div class="col-md-6 col-lg-4 cert-reveal">
+
+                <div class="certification-card">
+
+
+                    <div class="certificate-image">
+
+                        <img
+                        
+                        src="{% static 'images/deloitte-certificate.png' %}"
+                            
+                        alt="Deloitte Data Analytics Job Simulation Certificate"
+                        
+                        loading="lazy">
+
+                    </div>
+
+
+                    <h4>Data Analytics Job Simulation</h4>
+
+
+                    <p class="mb-2">
+
+                        <i class="bi bi-building gold"></i>
+
+                        Deloitte
+
+                    </p>
+
+
+                    <div class="project-date">
+
+                        <i class="bi bi-calendar3"></i>
+
+                       May 2026
+
+                    </div>
+
+
+                    <div class="mt-4">
+
+                        <a
+
+                        href="https://www.linkedin.com/posts/senthamilbharathi-k-58a504410_deloitte-dataanalytics-forage-activity-7464203679420596224-xCFK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGi52joBafQ89V7I4qIN8eq-pUt_-jQRWVA"
+
+                        target="_blank"
+
+                        rel="noopener noreferrer"
+                        
+                        class="btn btn-outline-gold">
+
+                        <i class="bi bi-linkedin"></i>
+                        
+                            LinkedIn
+
+
+                    </a>
+
+                </div>
+            
+            </div>
+        
+        </div>
+
+
+
+            <!-- CERTIFICATION : UI/UX WEBINAR -->
+
+ 
+            <div class="col-md-6 col-lg-4 cert-reveal">
+ 
+                <div class="certification-card">
+
+
+                    <div class="certificate-image">
+
+                        <img
+
+                        src="{% static 'images/uiux-webinar.jpg' %}"
+
+                        alt="UI UX Webinar Certificate of Participation"
+
+                        loading="lazy">
+
+                    </div>
+
+
+                    <h4>UI/UX Design Webinar</h4>
+
+
+                    <p class="mb-2">
+
+                        <i class="bi bi-building gold"></i>
+
+                        Brand Monk Academy
+
+                    </p>
+
+
+                    <div class="project-date">
+
+                        <i class="bi bi-calendar3"></i>
+
+                        1 June 2026
+
+                    </div>
+
+
+                    <div class="mt-4">
+
+                        <a
+
+                        href="https://www.linkedin.com/posts/senthamilbharathi-k-58a504410_uiux-webinar-learning-activity-7467427369516167168-GJm1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGi52joBafQ89V7I4qIN8eq-pUt_-jQRWVA"
+
+                        target="_blank"
+
+                        rel="noopener noreferrer"
+                        
+                        class="btn btn-outline-gold">
+
+
+                        <i class="bi bi-linkedin"></i>
+                        
+                            LinkedIn
+
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    
+    </div>
+
+</div>
+
+</section>
+
+<!--CERTIFICATION HTML END -->
+
+<!--CONTACT HTML START -->
+<section class="section" id="Connect">
+
+    <div class="container">
+
+       {% if messages %}
+    {% for message in messages %}
+        <div class="alert
+            {% if message.tags == 'success' %}
+                alert-success
+            {% elif message.tags == 'error' %}
+                alert-danger
+            {% else %}
+                alert-info
+            {% endif %}
+            contact-alert"
+            role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+        <h2 class="contact-title">
+
+            Let's
+
+            <span class="gold">
+
+                Connect
+
+            </span>
+
+        </h2>
+        <h6 class="contact-subtitle">
+            Let’s connect and create something extraordinary together
+        </h6>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="contact-box">
+                    
+                    <form method="POST" action="{% url 'contact' %}">
+
+                        {% csrf_token %}
+
+                        <input type="text"name="name"class="form-control mb-3"placeholder="Your Name"maxlength="100"required>
+                        <input type="email" name="email" class="form-control mb-3" placeholder="Your Email" maxlength="254" required>
+                        <input type="text" name="subject" class="form-control mb-3" placeholder="Subject" maxlength="200" required>
+                        <textarea name="message" class="form-control mb-3" rows="5" placeholder="Your Message" maxlength="5000" required></textarea>
+
+                        <button type="submit" class="btn btn-gold">
+                            Send Message
+                        </button>
+
+                    </form>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--CONTACT HTML END -->
+
+<!-- Home JAVASCRIPT START -->
+<script>
+    // Hero heading animation
+    const heroHeading = document.querySelector(".hero h1");
+
+    heroHeading.style.opacity = "0";
+    heroHeading.style.transform = "translateY(30px)";
+    heroHeading.style.transition = "all 1s ease";
+
+    window.addEventListener("load", function () {
+        heroHeading.style.opacity = "1";
+        heroHeading.style.transform = "translateY(0)";
+    });
+
+
+    // Profile icon hover effect
+    const profileIcon = document.querySelector(".profile-box i");
+
+    profileIcon.style.transition = "all 0.4s ease";
+
+    profileIcon.addEventListener("mouseenter", function () {
+        profileIcon.style.transform = "scale(1.15) rotate(5deg)";
+        profileIcon.style.color = "#F1D77A";
+    });
+
+    profileIcon.addEventListener("mouseleave", function () {
+        profileIcon.style.transform = "scale(1) rotate(0deg)";
+        profileIcon.style.color = "#D4AF37";
+    });
+
+
+    // Explore My Work button click
+    const exploreButton = document.querySelector(
+        'a[href="#Creations"]'
+    );
+
+    exploreButton.addEventListener("click", function (event) {
+        const creationsSection = document.getElementById("Creations");
+
+        if (creationsSection) {
+            event.preventDefault();
+
+            creationsSection.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+
+
+    // Contact Me button click
+    const contactButton = document.querySelector(
+        'a[href="#Connect"]'
+    );
+
+    contactButton.addEventListener("click", function (event) {
+        const contactSection = document.getElementById("Connect");
+
+        if (contactSection) {
+            event.preventDefault();
+
+            contactSection.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+
+</script>
+
+<!-- Home JAVASCRIPT END -->
+
+<!--About JAVASCRIPT START-->
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Enable animations only when JavaScript is available
+    document.body.classList.add("about-js");
+
+    // Select all elements that need to animate
+    const revealElements = document.querySelectorAll(
+        "#Identity .about-reveal, #Identity .about-image-reveal"
+    );
+
+    // Check browser support
+    if (!("IntersectionObserver" in window)) {
+
+        revealElements.forEach(function (element) {
+            element.classList.add("show");
+        });
+
+        return;
+    }
+
+    // Observe elements when they enter the screen
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    // Start the animation
+                    entry.target.classList.add("show");
+
+                } else {
+
+                    // Reset animation when leaving the screen
+                    entry.target.classList.remove("show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    // Apply observer to each element
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
+
+});
+
+// Resume download button
+
+const resumeButton = document.getElementById("resumeDownload");
+
+if (resumeButton) {
+
+    resumeButton.addEventListener("click", function () {
+
+        // Change button text temporarily
+        const buttonText = resumeButton.querySelector("span");
+        const originalText = buttonText.textContent;
+
+        buttonText.textContent = "Downloading...";
+
+        // Restore the original text
+        setTimeout(function () {
+            buttonText.textContent = originalText;
+        }, 1200);
+
+    });
+
+}
+
+</script>
+<!--ABOUT JAVASCRIPT END -->
+
+<!--SKILLS JS START-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Enable skill animations
+    document.body.classList.add("skills-js");
+
+    // Select all skill cards
+    const cards = document.querySelectorAll(
+        "#Capabilities .skill-card"
+    );
+
+    // Select animation containers
+    const revealItems = document.querySelectorAll(
+        "#Capabilities .skill-reveal"
+    );
+
+    // Function to select a skill
+    window.showSkill = function (selectedCard) {
+
+        cards.forEach(function (card) {
+
+            const isSelected = card === selectedCard;
+
+            card.classList.toggle("active", isSelected);
+
+            card.setAttribute(
+                "aria-pressed",
+                String(isSelected)
+            );
+
+        });
+
+    };
+
+    // Support keyboard selection
+    window.handleSkillKey = function (event, card) {
+
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            window.showSkill(card);
+        }
+
+    };
+
+    // Fallback for browsers without IntersectionObserver
+    if (!("IntersectionObserver" in window)) {
+
+        revealItems.forEach(function (item) {
+            item.classList.add("show");
+        });
+
+        return;
+
+    }
+
+    // Observe cards while scrolling
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                } else {
+
+                    entry.target.classList.remove("show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    // Animate each card with a small delay
+    revealItems.forEach(function (item, index) {
+
+        item.style.transitionDelay =
+            (index % 4) * 100 + "ms";
+
+        observer.observe(item);
+
+    });
+
+});
+</script>
+
+<!--SKILLS JS END -->
+
+<!-- EDUCATION JAVASCRIPT START -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Education cards animation
+    const educationCards = document.querySelectorAll(
+        "#Qualification .education-card"
+    );
+
+    // Initial animation styles
+    educationCards.forEach(function (card, index) {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition =
+            "opacity 0.7s ease, transform 0.7s ease";
+
+        card.style.transitionDelay = `${index * 0.15}s`;
+    });
+
+    // Show cards when scrolling
+    const educationObserver = new IntersectionObserver(
+        function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    educationCards.forEach(function (card) {
+        educationObserver.observe(card);
+    });
+
+});
+</script>
+
+<!-- EDUCATION JAVASCRIPT END -->
+
+<!--PROJECT JS START -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Select all project cards
+    const projectCards = document.querySelectorAll(
+        "#Creations .project-card"
+    );
+
+    // Check browser support
+    if (!("IntersectionObserver" in window)) {
+        projectCards.forEach(function (card) {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+        });
+        return;
+    }
+
+    // Create scroll animation observer
+    const projectObserver = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+
+                } else {
+
+                    entry.target.style.opacity = "0";
+                    entry.target.style.transform = "translateY(30px)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    // Animate project cards one by one
+    projectCards.forEach(function (card, index) {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+
+        card.style.transition =
+            "opacity 0.7s ease, transform 0.7s ease";
+
+        card.style.transitionDelay =
+            (index * 150) + "ms";
+
+        projectObserver.observe(card);
+
+    });
+
+});
+</script>
+
+<!--PROJECT JS END -->
+
+<!--CERTIFICATION JS START-->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+   const cards = document.querySelectorAll(
+    "#Recognition .cert-reveal"
+);
+
+    // Show cards if IntersectionObserver is unsupported
+    if (!("IntersectionObserver" in window)) {
+
+        cards.forEach(function (card) {
+            card.classList.add("show");
+        });
+
+        return;
+    }
+
+    // Scroll reveal animation
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    // Animate cards one after another
+    cards.forEach(function (card, index) {
+
+        card.style.transitionDelay =
+            (index % 3) * 150 + "ms";
+
+        observer.observe(card);
+
+    });
+
+});
+</script>
+
+<!--CERTIFICATION JS END-->
+
+<!--CONTACT JS START -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // 1. Contact section elements
+    const title = document.querySelector("#Connect .contact-title");
+    const subtitle = document.querySelector("#Connect .contact-subtitle");
+    const contactBox = document.querySelector("#Connect .contact-box");
+
+    // 2. Fade-in animation
+    setTimeout(() => {
+        if (title) title.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+        if (subtitle) subtitle.classList.add("show");
+    }, 300);
+
+    setTimeout(() => {
+        if (contactBox) contactBox.classList.add("show");
+    }, 500);
+
+    // 3. Form validation and submit button
+    const form = document.querySelector("#Connect form");
+    const submitButton = form?.querySelector('button[type="submit"]');
+
+    if (form && submitButton) {
+        form.addEventListener("submit", function (event) {
+
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                form.reportValidity();
+                return;
+            }
+
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
+        });
+    }
+
+    // 4. Auto-hide Django messages
+    const alerts = document.querySelectorAll("#Connect .contact-alert");
+
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            alert.style.opacity = "0";
+
+            setTimeout(() => {
+                alert.remove();
+            }, 500);
+        }, 5000);
+    });
+
+});
+</script>
+
+<!--CONTACT JS END -->
+
+{% endblock %}
